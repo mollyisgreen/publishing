@@ -25,17 +25,12 @@ app.set('view engine', 'html');
 
 app.use(express.favicon());
 
-// uploaded files goes to uploads directory
-app.use(express.bodyParser());
-
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
-
 
 
 
@@ -46,7 +41,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/autocomplete', routes.autocomplete);
+app.get('/about', routes.about);
+app.get('/submit', routes.submit);
 
 
 

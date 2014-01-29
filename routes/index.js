@@ -8,6 +8,10 @@ exports.index = function(req, res){
 };
 
 
-exports.autocomplete = function(req, res){
-  res.render('autocomplete.html', { title: 'Express' });
+exports.about = function(req, res){
+  res.render('about.html', { title: 'Express' });
+};
+
+exports.submit = function(req, res){
+  res.render('submit.html', { title: 'Express' });
 };
