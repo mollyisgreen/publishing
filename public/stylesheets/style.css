@@ -13,4 +13,19 @@ a {
 	border: 1px solid #979797;
 	height: 50px;
 	width: 100%;
+	padding: 10px 10px 10px 10px;
+}
+
+.column {
+	background: #D8D8D8;
+	border: 1px solid #979797;
+	height: 500px;
+	width: 30%;
+	float: left;
+	padding: 10px 10px 10px 10px;
+}
+
+.uploadFile {
+	padding: 10px 10px 10px 10px;
+	margin: 10px 10px 10px 10px;
 }

@@ -10,6 +10,7 @@ var http = require('http');
 var path = require('path');
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
+var fs = require('fs');
 
 var app = express();
 
@@ -23,12 +24,19 @@ app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
 app.use(express.favicon());
+
+// uploaded files goes to uploads directory
+app.use(express.bodyParser());
+
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 
 
 // development only
@@ -40,6 +48,13 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/autocomplete', routes.autocomplete);
 
+
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+
+
+
